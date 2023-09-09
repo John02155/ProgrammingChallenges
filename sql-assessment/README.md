@@ -1,5 +1,4 @@
 # SQL Challenge
-
 The database contains three tables: marketing_performance, website_revenue, and campaign_info. Refer to the CSV
 files to understand how these tables have been created.
 
@@ -53,5 +52,10 @@ create table campaign_info (
 **Bonus Question**
 
 6. Write a query that showcases the best day of the week (e.g., Sunday, Monday, Tuesday, etc.) to run ads.
+
+Select impressions from marketing_performance
+
+
+
 
 
