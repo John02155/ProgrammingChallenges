@@ -54,4 +54,48 @@ create table campaign_info (
 
 6. Write a query that showcases the best day of the week (e.g., Sunday, Monday, Tuesday, etc.) to run ads.
 
+#Answer to #1 
+SELECT date, SUM(impressions) AS total_impressions FROM marketing_performance
+GROUP BY date;
+
+#Answer to #2
+Select state, SUM(revenue) AS total_revenue from website_revenue
+GROUP BY state
+ORDER BY total_revenue ASC
+Limit 3;
+
+Answer to #3
+SELECT ci.name AS campaign_name, SUM(mp.cost) AS total_cost, SUM(mp.impressions) AS total_impressions, SUM(mp.clicks) AS total_clicks, SUM(wr.revenue) AS total_revenueFROM campaign_info ci
+INNER JOIN marketing_data mp ON ci.id = mp.campaign_id
+INNER JOIN website_revenue wr ON ci.id = wr.campaign_id
+GROUP BY ci.name;
+
+#Answer to #4
+SELECT wr.state, SUM(mp.conversions) AS total_conversions FROM marketing_performance mp
+INNER JOIN campaign_info ci ON mp.campaign_id = ci.id
+INNER JOIN website_revenue wr ON mp.campaign_id = wr.campaign_id
+WHERE ci.name = 'Campaign5'
+GROUP BY wr.state
+ORDER BY total_conversions ASC
+LIMIT 1;
+
+#Answer to #5
+Cannot answer this question because the system is not showing the outputs of the queries.
+
+#Answer to #6
+SELECT DAYNAME(date) AS day_of_week, AVG(conversions) AS avg_conversions FROM marketing_performance
+GROUP BY day_of_week
+ORDER BY  avg_conversions ASC
+LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
 
