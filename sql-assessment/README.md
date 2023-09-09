@@ -53,5 +53,15 @@ create table campaign_info (
 **Bonus Question**
 
 6. Write a query that showcases the best day of the week (e.g., Sunday, Monday, Tuesday, etc.) to run ads.
+#Answer to question 1. 
+SELECT date date, SUM (impressions) FROM marketing_performance
+GROUP BY date;
+#Answer to question 2. 
+SELECT state, SUM(revenue) AS total_revenue  FROM website_revenue
+GROUP BY state
+Order By total_revenue ASC
+LIMIT 3;
+#Answer to question 3.
+
 
 
